@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-    id="com.phonegap.plugins.testflightsdk"
+    id="com.shazron.cordova.testflight"
     version="1.0.0">
 
     <name>TestFlight SDK</name>
 	
     <engines>
-        <engine name="cordova" version="2.2.0" />
+        <engine name="cordova" version=">=2.2.0" />
     </engines>
 	
     <access origin="*.testflightapp.com" />
@@ -15,8 +15,7 @@
     <!-- ios -->
     <platform name="ios">
         <!-- Only for Cordova 2.2.0 -->
-        <plugins-plist key="TestFlightSDK"
-                    string="CDVTestFlight" />
+        <plugins-plist key="TestFlightSDK" string="CDVTestFlight" />
 
         <!-- Only for Cordova 2.3.0, 2.4.0 -->
         <!--
