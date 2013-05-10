@@ -28,6 +28,7 @@
 - (void) openFeedbackView:(CDVInvokedUrlCommand*)command;
 - (void) submitFeedback:(CDVInvokedUrlCommand*)command;
 - (void) setDeviceIdentifier:(CDVInvokedUrlCommand*)command;
-
+- (void) setDeviceIdentifierUUID:(CDVInvokedUrlCommand*)command;
+- (void) remoteLog:(CDVInvokedUrlCommand*)command;
 
 @end
