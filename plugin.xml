@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-    id="com.shazron.cordova.testflight"
+    id="com.testflightapp.ios.cordova-plugin"
     version="1.0.0">
 
     <name>TestFlight SDK</name>
@@ -17,24 +17,15 @@
         <!-- Only for Cordova 2.2.0 -->
         <plugins-plist key="TestFlightSDK" string="CDVTestFlight" />
 
-        <!-- Only for Cordova 2.3.0, 2.4.0 -->
-        <!--
-        <config-file target="config.xml" parent="/cordova/plugins">
-            <plugin name="TestFlightSDK" value="CDVTestFlight"/>
-        </config-file>
-        -->
-
-        <!-- For Cordova >= 2.5.0 -->
         <config-file target="config.xml" parent="/widget/plugins">
             <plugin name="TestFlightSDK" value="CDVTestFlight"/>
         </config-file>
 
-        <!-- Note: the ios src is based off src/ios implicitly --> 
-        <header-file src="TestFlight1.1/TestFlight.h" target-dir="TestFlightPlugin/TestFlight1.1" />
-        <header-file src="CDVTestFlight.h" target-dir="TestFlightPlugin" />
+        <header-file src="src/ios/TestFlight.h" />
+        <header-file src="src/ios/CDVTestFlight.h"/>
         
-        <source-file src="CDVTestFlight.m" target-dir="TestFlightPlugin" />
-        <source-file src="TestFlight1.1/libTestFlight.a" target-dir="TestFlightPlugin/TestFlight1.1" />
+        <source-file src="src/ios/CDVTestFlight.m" />
+        <source-file src="src/ios/libTestFlight.a" framework="true"/>
         
         <framework src="libz.dylib" />
     </platform>
