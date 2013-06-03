@@ -9,8 +9,27 @@ Follows the [Cordova Plugin spec](https://github.com/alunny/cordova-plugin-spec)
 1. Add the TestFlight SDK 1.1 files **(libTestFlight.a, and TestFlight.h)** in Xcode (add as a group)
 2. Add the plugin files **(CDVTestFlight.h, CDVTestFlight.m)** in Xcode (add as a group)
 3. Add **testflight.js** to your **www** folder, and reference it in a script tag, after your cordova.js
-4. In __Cordova.plist__, under the **'Plugins'** key, add a new row: key is **"TestFlightSDK"** and the value is **"CDVTestFlight"**
-5. In __Cordova.plist__, under the **'ExternalHosts'** key, add a new value **"*.testflightapp.com"**
+4. 
+	a. For __Cordova.plist__, under the **'Plugins'** key, add a new row: key is **"TestFlightSDK"** and the value is **"CDVTestFlight"**
+	
+	b. For __config.xml__, under the **&lt;plugins&gt;** tag, add this (deprecated, 2.7.0 and below):
+	     
+	     <plugin name="TestFlightSDK" value="CDVTestFlight" />
+	
+	c. For __config.xml__, add a new **&lt;feature&gt;** tag (2.8.0 and up):
+
+         <feature name="TestFlightSDK">
+            <param name="ios-package" value="CDVTestFlight" />
+         </feature>
+
+5. 
+    a. For __Cordova.plist__, under the **'ExternalHosts'** key, add a new value **"*.testflightapp.com"**
+	
+	b. For __config.xml__, add a new **&lt;access&gt;** tag:
+	
+	    <access origin="*.testflightapp.com" />
+
+	
 6. Add the lib **"libz.dylib"** in your Build Phases tab of your Project
     
 The plugin's JavaScript functions are called after getting the plugin object thus:
