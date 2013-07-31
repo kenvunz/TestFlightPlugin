@@ -51,7 +51,7 @@ var TestFlight = function() {
  @param key string
  @param information string
  */
-TestFlight.prototype.addCustomEnvironmentInformation = function(successCallback, failureCallback, key, information) {
+TestFlight.prototype.addCustomEnvironmentInformation = function(key, information, successCallback, failureCallback) {
     exec(successCallback, failureCallback, this.serviceName, "addCustomEnvironmentInformation",
                   [ key, information]);
 };
@@ -63,7 +63,7 @@ TestFlight.prototype.addCustomEnvironmentInformation = function(successCallback,
  @param failureCallback function
  @param teamToken string
  */
-TestFlight.prototype.takeOff = function(successCallback, failureCallback, teamToken) {
+TestFlight.prototype.takeOff = function(teamToken, successCallback, failureCallback) {
     exec(successCallback, failureCallback, this.serviceName, "takeOff", [ teamToken ]);
 };
 
@@ -74,7 +74,7 @@ TestFlight.prototype.takeOff = function(successCallback, failureCallback, teamTo
  @param failureCallback function
  @param options object i.e { reinstallCrashHandlers : true }
  */
-TestFlight.prototype.setOptions = function(successCallback, failureCallback, options) {
+TestFlight.prototype.setOptions = function(options, successCallback, failureCallback) {
     if (!(null !== options && 'object' == typeof(options))) {
         options = {};
     }
@@ -88,7 +88,7 @@ TestFlight.prototype.setOptions = function(successCallback, failureCallback, opt
  @param failureCallback function
  @param checkpointName string
  */
-TestFlight.prototype.passCheckpoint = function(successCallback, failureCallback, checkpointName) {
+TestFlight.prototype.passCheckpoint = function(checkpointName, successCallback, failureCallback) {
     exec(successCallback, failureCallback, this.serviceName, "passCheckpoint", [ checkpointName ]);
 };
 
@@ -99,7 +99,7 @@ TestFlight.prototype.passCheckpoint = function(successCallback, failureCallback,
  @param failureCallback function
  @param message string
  */
-TestFlight.prototype.remoteLog = function(successCallback, failureCallback, message) {
+TestFlight.prototype.remoteLog = function(message, successCallback, failureCallback) {
     exec(successCallback, failureCallback, this.serviceName, "remoteLog", [ message ]);
 };
 
@@ -120,7 +120,7 @@ TestFlight.prototype.openFeedbackView = function(successCallback, failureCallbac
 
   @param feedback Your users feedback, method does nothing if feedback is nil
 */
-TestFlight.prototype.submitFeedback = function(successCallback, failureCallback, feedback) {
+TestFlight.prototype.submitFeedback = function(feedback, successCallback, failureCallback) {
     exec(successCallback, failureCallback, this.serviceName, "submitFeedback", [ feedback ]);
 };
 
@@ -133,7 +133,7 @@ TestFlight.prototype.submitFeedback = function(successCallback, failureCallback,
 
   @param deviceIdentifer The current devices device identifier
 */
-TestFlight.prototype.setDeviceIdentifier = function(successCallback, failureCallback, deviceIdentifier) {
+TestFlight.prototype.setDeviceIdentifier = function(deviceIdentifier, successCallback, failureCallback) {
     exec(successCallback, failureCallback, this.serviceName, "setDeviceIdentifier", [ deviceIdentifier ]);
 };
 
